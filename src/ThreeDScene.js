@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { TDSLoader } from 'three/examples/jsm/loaders/TDSLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 
 
 const ThreeDScene = () => {
@@ -9,30 +11,52 @@ const ThreeDScene = () => {
   useEffect(() => {
     // Initialize scene, camera, and renderer
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    mountRef.current.appendChild(renderer.domElement);
+      // Create a blue gradient background
+      const color1 = new THREE.Color(0x1e4877); // Deep blue
+      const color2 = new THREE.Color(0x4584b4); // Lighter blue
+      scene.background = new THREE.Color(0x4584b4);
+  
+      // Apply fog for underwater depth
+      scene.fog = new THREE.Fog(color1, 0.1, 100);
+  
+      // Create gradient texture for background
+      const canvas = document.createElement('canvas');
+      canvas.width = 32;
+      canvas.height = window.innerHeight;
+  
+      const context = canvas.getContext('2d');
+      const gradient = context.createLinearGradient(0, 0, 0, canvas.height);
+      gradient.addColorStop(0, color1.getStyle());
+      gradient.addColorStop(1, color2.getStyle());
+      context.fillStyle = gradient;
+      context.fillRect(0, 0, canvas.width, canvas.height);
+  
+      const texture = new THREE.CanvasTexture(canvas);
+      scene.background = texture;
+  
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      mountRef.current.appendChild(renderer.domElement);
+  
+      // Add ambient light with a soft blue hue
+      const ambientLight = new THREE.AmbientLight(0x204080, 1); // Dim blue light
+      scene.add(ambientLight);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1); // Ambient light for overall brightness
-scene.add(ambientLight);
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5); // Directional light for shadows and depth
-directionalLight.position.set(1, 1, 1).normalize();
-scene.add(directionalLight);
-
-
-    // Add a 3D model (example: a simple cube)
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+      const ambientLight2 = new THREE.AmbientLight(0xffffff, 1); // Ambient light for overall brightness
+      scene.add(ambientLight2);
+  
+      // Add a directional light for highlights
+      const directionalLight = new THREE.DirectionalLight(0x88cfff, 0.5); // Soft blue light
+      directionalLight.position.set(0, 1, 0.5).normalize();
+      scene.add(directionalLight);
 
       // Load the 3DS model with TDSLoader
       const loader = new TDSLoader();
       loader.setPath('/models/');  // Set the path to your models folder
       loader.load('REALE_L.3DS', (object) => {
         object.scale.set(0.1, 0.1, 0.1); // Scale the model to an appropriate size
+        object.rotation.x = 3 * Math.PI /2;
   
         // Apply materials/textures if needed
         object.traverse((child) => {
@@ -45,12 +69,12 @@ scene.add(directionalLight);
       });
 
     // Set camera position
-    camera.position.z = 500;
+    camera.position.z = 700;
 
       // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
-        scene.rotation.y += 0.005; // Rotate the scene slowly for a better view
+        scene.rotation.y += 0.001; // Rotate the scene slowly for a better view
         renderer.render(scene, camera);
       };
       animate();
