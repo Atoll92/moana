@@ -5,17 +5,17 @@ const projects = [
   {
     title: '17th Century Shipwreck',
     description: 'Explore the remains of a shipwreck from the 17th century, discovered deep beneath the ocean.',
-    image: 'https://source.unsplash.com/featured/?shipwreck',
+    image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/Buzos_anclas_las-Aves_ByW1-scaleCd-2048x2048.jpg',
   },
   {
     title: 'Lake Parime',
     description: 'Journey to the lost lake Parime, once believed to hide the legendary El Dorado.',
-    image: 'https://source.unsplash.com/featured/?amazon',
+    image: 'https://fundacionmanoa.org/wp-content/uploads/2023/01/FM4.jpg',
   },
   {
     title: 'Ancient Amazonian Settlements',
     description: 'Discover the traces of ancient civilizations deep within the Amazon rainforest.',
-    image: 'https://source.unsplash.com/featured/?amazon,jungle',
+    image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
   },
 ];
 
