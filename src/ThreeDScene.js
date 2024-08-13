@@ -17,7 +17,7 @@ const ThreeDScene = () => {
       scene.background = new THREE.Color(0x4584b4);
   
       // Apply fog for underwater depth
-      scene.fog = new THREE.Fog(color1, 0.1, 100);
+      scene.fog = new THREE.Fog(color1, 0.15, 100);
   
       // Create gradient texture for background
       const canvas = document.createElement('canvas');
@@ -69,12 +69,12 @@ const ThreeDScene = () => {
       });
 
     // Set camera position
-    camera.position.z = 700;
+    camera.position.z = 800;
 
       // Animation loop
       const animate = () => {
         requestAnimationFrame(animate);
-        scene.rotation.y += 0.001; // Rotate the scene slowly for a better view
+        scene.rotation.y += 0.0005; // Rotate the scene slowly for a better view
         renderer.render(scene, camera);
       };
       animate();
