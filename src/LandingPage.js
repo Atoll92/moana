@@ -68,7 +68,7 @@ const LandingPage = () => {
             <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
               <CardMedia
                 component="img"
-                sx={{ pt: '56.25%' }} // 16:9 aspect ratio
+                sx={{ pt: '0%' }} // 16:9 aspect ratio
                 image={project.image}
                 alt={project.title}
               />
