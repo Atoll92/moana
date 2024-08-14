@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Card, CardContent, CardMedia, Button } from '@mui/material';
+import { Container, Typography, Grid, Card,Box, CardContent, CardMedia, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // Define project data for both languages
@@ -99,6 +99,30 @@ const LandingPage = () => {
             </Grid>
           ))}
         </Grid>
+
+          {/* Footer */}
+      <Box
+        component="footer"
+        sx={{
+          py: 3,
+          mt: 4,
+          backgroundColor: 'white',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Grid container spacing={2} justifyContent="center">
+        <Grid item>
+            <img src="./moana.png" alt="Logo 2" style={{ height: 80, filter: 'invert(100%)' }} />
+          </Grid>
+          <Grid item>
+            <img src="./dg.png" alt="Logo 1" style={{ height: 70 }} />
+          </Grid>
+         
+        </Grid>
+      </Box>
+    
       </Container>
     );
   };
