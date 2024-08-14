@@ -87,6 +87,8 @@ const ThreeDScene = () => {
     }, undefined, (error) => {
       console.error("Error loading MTL file:", error);
     });
+    camera.position.z = 180;
+
   } else {
  // Load the 3DS model with TDSLoader
  const loader = new TDSLoader();
@@ -104,10 +106,11 @@ const ThreeDScene = () => {
 
    scene.add(object);
  });
+ camera.position.z = 550;
+
   }
 
     // Set camera position
-    camera.position.z = 180;
 
     // Add OrbitControls
     const controls = new OrbitControls(camera, renderer.domElement);
