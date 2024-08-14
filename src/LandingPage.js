@@ -66,7 +66,7 @@ const LandingPage = () => {
           {language === 'en' ? 'Français' : 'English'}
         </Button>
         <Typography variant="h3" align="center" gutterBottom>
-          {language === 'en' ? 'Humanscape' : 'Humanscape'}
+          {language === 'en' ? 'Proof of concept' : 'Proof of concept'}
         </Typography>
         <Typography variant="h6" align="center" color="textSecondary" paragraph>
           {language === 'en'
