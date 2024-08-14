@@ -48,7 +48,7 @@ const ThreeDScene = () => {
   
       // Add a directional light for highlights
       const directionalLight = new THREE.DirectionalLight(0x88cfff, 0.5); // Soft blue light
-      directionalLight.position.set(0, 1, 0.5).normalize();
+      directionalLight.position.set(1, 1, 1).normalize();
       scene.add(directionalLight);
 
       // Load the 3DS model with TDSLoader
