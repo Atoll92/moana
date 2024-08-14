@@ -71,13 +71,25 @@ const ThreeDScene = () => {
     // Set camera position
     camera.position.z = 800;
 
-      // Animation loop
-      const animate = () => {
-        requestAnimationFrame(animate);
-        scene.rotation.y += 0.0005; // Rotate the scene slowly for a better view
-        renderer.render(scene, camera);
-      };
-      animate();
+    // Add OrbitControls
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // Enable damping (inertia) for smoother controls
+    controls.dampingFactor = 0.25;
+    controls.screenSpacePanning = false;
+    controls.maxPolarAngle = Math.PI / 2; // Prevent the camera from rotating below the horizon
+    controls.update();
+
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      scene.rotation.y += 0.0005; // Rotate the scene slowly for a better view
+
+      // Update controls for smooth interaction
+      controls.update();
+
+      renderer.render(scene, camera);
+    };
+    animate();
 
     // Handle window resize
     const handleResize = () => {
@@ -86,6 +98,21 @@ const ThreeDScene = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
     };
     window.addEventListener('resize', handleResize);
+
+    //   // Animation loop
+    //   const animate = () => {
+    //     requestAnimationFrame(animate);
+    //     renderer.render(scene, camera);
+    //   };
+    //   animate();
+
+    // // Handle window resize
+    // const handleResize = () => {
+    //   camera.aspect = window.innerWidth / window.innerHeight;
+    //   camera.updateProjectionMatrix();
+    //   renderer.setSize(window.innerWidth, window.innerHeight);
+    // };
+    // window.addEventListener('resize', handleResize);
 
     // Cleanup
     return () => {
