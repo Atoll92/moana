@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Grid, Card,Box, CardContent, CardMedia, Button } from '@mui/material';
+import { Container, Typography, Grid, Card, Box, CardContent, CardMedia, Button, Link } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 // Define project data for both languages
@@ -10,19 +10,21 @@ const projects = {
       title: '17th Century Shipwreck',
       description: 'Explore the remains of a shipwreck from the 17th century, discovered deep beneath the ocean.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/Buzos_anclas_las-Aves_ByW1-scaleCd-2048x2048.jpg',
+      researchLink: 'https://www.researchgate.net/publication/376078121_The_Shipwreck_of_the_French_Fleet_in_Las_Aves_de_Sotavento_Venezuela_-_University_Press_of_Florida-',
     },
     {
       id: 'lake-parime',  
       title: 'Lake Parime',
       description: 'Journey to the lost lake Parime, once believed to hide the legendary El Dorado.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/01/FM4.jpg',
+      researchLink: 'https://www.researchgate.net/publication/358658229_Remote_Sensing_Archaeology_-_Searching_for_Lake_Parime_from_Space_-pdf',
     },
     {
       id: 'amazon-settlements',
       title: 'Ancient Amazonian Settlements',
       description: 'Discover the traces of ancient civilizations deep within the Amazon rainforest.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
-
+      researchLink: 'https://www.instagram.com/proyectoarqueologicocanaima/',
     },
   ],
   fr: [
@@ -31,19 +33,21 @@ const projects = {
       title: 'Épave du XVIIe siècle',
       description: 'Explorez les vestiges d\'une épave du XVIIe siècle, découverte au fond de l\'océan.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/Buzos_anclas_las-Aves_ByW1-scaleCd-2048x2048.jpg',
+      researchLink: 'https://www.researchgate.net/publication/376078121_The_Shipwreck_of_the_French_Fleet_in_Las_Aves_de_Sotavento_Venezuela_-_University_Press_of_Florida-',
     },
     {
       id: 'lake-parime',    
       title: 'Lac Parime',
       description: 'Voyagez vers le lac perdu Parime, autrefois censé cacher le légendaire El Dorado.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/01/FM4.jpg',
+      researchLink: 'https://www.researchgate.net/publication/358658229_Remote_Sensing_Archaeology_-_Searching_for_Lake_Parime_from_Space_-pdf',
     },
     {
       id: 'amazon-settlements',
       title: 'Anciennes colonies amazoniennes',
       description: 'Découvrez les traces des anciennes civilisations au cœur de la forêt amazonienne.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
-      
+      researchLink: 'https://www.instagram.com/proyectoarqueologicocanaima/',
     },
   ],
 };
@@ -79,7 +83,6 @@ const LandingPage = () => {
             <Grid item key={index} xs={12} sm={6} md={4}>
               <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
-                onClick={() => handleProjectClick(project.id)}
               >
                 <CardMedia
                   component="img"
@@ -94,6 +97,15 @@ const LandingPage = () => {
                   <Typography>
                     {project.description}
                   </Typography>
+                  <Link href={project.researchLink} target="_blank" rel="noopener" sx={{ mt: 2, display: 'block', textDecoration: 'none' }}>
+                    {language === 'en' ? 'Learn more' : 'En savoir plus'}
+                  </Link>
+                  <Link
+                    onClick={() => handleProjectClick(project.id)}
+                    sx={{ mt: 1, display: 'block', textDecoration: 'none', cursor: 'pointer' }}
+                  >
+                    {language === 'en' ? 'Explore' : 'Explorer'}
+                  </Link>
                 </CardContent>
               </Card>
             </Grid>
@@ -128,4 +140,3 @@ const LandingPage = () => {
   };
   
   export default LandingPage;
-
