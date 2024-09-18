@@ -21,8 +21,8 @@ const projects = {
     },
     {
       id: 'amazon-settlements',
-      title: 'New Rock Art site Complex from the Canaima National Park',
-      description: 'Discover the traces of ancient civilizations deep within the Amazon rainforest.',
+      title: 'New rock Art site complex from the Canaima National Park',
+      description: 'Discover the traces of an ancient civilization deep within the Canaima Park.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
       researchLink: 'https://www.researchgate.net/publication/374660579_New_Rock_Art_Site_Complex_In_The_Arauak_River_Valley_Southeastern_Venezuela',
     },
