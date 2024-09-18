@@ -21,10 +21,10 @@ const projects = {
     },
     {
       id: 'amazon-settlements',
-      title: 'Ancient Amazonian Settlements',
+      title: 'New Rock Art site Complex from the Canaima National Park',
       description: 'Discover the traces of ancient civilizations deep within the Amazon rainforest.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
-      researchLink: 'https://www.instagram.com/proyectoarqueologicocanaima/',
+      researchLink: 'https://www.researchgate.net/publication/374660579_New_Rock_Art_Site_Complex_In_The_Arauak_River_Valley_Southeastern_Venezuela',
     },
   ],
   fr: [
@@ -44,10 +44,10 @@ const projects = {
     },
     {
       id: 'amazon-settlements',
-      title: 'Anciennes colonies amazoniennes',
-      description: 'Découvrez les traces des anciennes civilisations au cœur de la forêt amazonienne.',
+      title: 'Nouveau site d art pariétal au parc Canaima',
+      description: 'Découvrez les traces des anciennes civilisations au cœur du parc Canaima, au sud du Vénezuela.',
       image: 'https://fundacionmanoa.org/wp-content/uploads/2023/10/canaima-C.jpg',
-      researchLink: 'https://www.instagram.com/proyectoarqueologicocanaima/',
+      researchLink: 'https://www.researchgate.net/publication/374660579_New_Rock_Art_Site_Complex_In_The_Arauak_River_Valley_Southeastern_Venezuela',
     },
   ],
 };
